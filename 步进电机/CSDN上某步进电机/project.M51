@@ -1,0 +1,101 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/28/2021  17:23:35  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE main.obj TO project RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?MAIN
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     001CH     UNIT         ?PR?MAIN?MAIN
+            CODE    00ABH     0018H     UNIT         ?PR?_DELAY1MS?MAIN
+            CODE    00C3H     0010H     UNIT         ?CO?MAIN
+            CODE    00D3H     0004H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   project (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?CO?MAIN
+  +--> ?PR?_DELAY1MS?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/28/2021  17:23:35  PAGE 2
+
+
+  B:0090H.0       PUBLIC        P1_0
+  D:0008H         PUBLIC        speed
+  C:00CBH         PUBLIC        zheng
+  C:00ABH         PUBLIC        _delay1ms
+  C:008FH         PUBLIC        main
+  C:00C3H         PUBLIC        fan
+  -------         PROC          _DELAY1MS
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0005H         SYMBOL        i
+  -------         ENDDO         
+  C:00ABH         LINE#         12
+  C:00ABH         LINE#         14
+  C:00B5H         LINE#         15
+  C:00C2H         LINE#         16
+  C:00C2H         LINE#         17
+  -------         ENDPROC       _DELAY1MS
+  -------         PROC          MAIN
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:008FH         LINE#         22
+  C:008FH         LINE#         23
+  C:008FH         LINE#         26
+  C:008FH         LINE#         27
+  C:008FH         LINE#         28
+  C:0092H         LINE#         29
+  C:0092H         LINE#         30
+  C:009AH         LINE#         31
+  C:009AH         LINE#         32
+  C:00A1H         LINE#         33
+  C:00A8H         LINE#         34
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+Program Size: data=10.0 xdata=0 code=215
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

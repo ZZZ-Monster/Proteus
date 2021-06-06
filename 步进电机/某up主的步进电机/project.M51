@@ -1,0 +1,121 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/28/2021  15:15:11  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE bjdj_1.obj TO project RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  bjdj_1.obj (BJDJ_1)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  project (BJDJ_1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?BJDJ_1
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0008H     UNIT         ?CO?BJDJ_1
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     006BH     UNIT         ?PR?MAIN?BJDJ_1
+            CODE    0079H     0013H     UNIT         ?PR?TIMER?BJDJ_1
+            CODE    008CH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   project (BJDJ_1)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?BJDJ_1
+
+?PR?MAIN?BJDJ_1
+  +--> ?CO?BJDJ_1
+
+
+
+SYMBOL TABLE OF MODULE:  project (BJDJ_1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        BJDJ_1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  B:00A8H.7       PUBLIC        EA
+  C:0079H         PUBLIC        timer
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/28/2021  15:15:11  PAGE 2
+
+
+  C:000EH         PUBLIC        main
+  D:0008H         PUBLIC        TIME
+  D:0089H         PUBLIC        TMOD
+  B:0090H.1       PUBLIC        neg
+  B:00A8H.1       PUBLIC        ET0
+  C:0003H         PUBLIC        turn
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0090H.0       PUBLIC        pos
+  B:0088H.4       PUBLIC        TR0
+  -------         PROC          MAIN
+  -------         DO            
+  D:0007H         SYMBOL        a
+  -------         ENDDO         
+  C:000EH         LINE#         15
+  C:000EH         LINE#         16
+  C:000EH         LINE#         19
+  C:0011H         LINE#         21
+  C:0014H         LINE#         22
+  C:0017H         LINE#         23
+  C:001AH         LINE#         24
+  C:001CH         LINE#         25
+  C:001EH         LINE#         26
+  C:0020H         LINE#         33
+  C:0020H         LINE#         34
+  C:0020H         LINE#         35
+  C:002BH         LINE#         36
+  C:002EH         LINE#         37
+  C:002EH         LINE#         38
+  C:0036H         LINE#         39
+  C:0036H         LINE#         41
+  C:0045H         LINE#         42
+  C:004CH         LINE#         43
+  C:0051H         LINE#         44
+  C:0051H         LINE#         45
+  C:0051H         LINE#         47
+  C:0054H         LINE#         48
+  C:0054H         LINE#         49
+  C:005CH         LINE#         50
+  C:005CH         LINE#         52
+  C:006BH         LINE#         53
+  C:0072H         LINE#         54
+  C:0077H         LINE#         55
+  C:0077H         LINE#         57
+  C:0077H         LINE#         63
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER
+  C:0079H         LINE#         80
+  C:007BH         LINE#         82
+  C:007EH         LINE#         83
+  C:0081H         LINE#         84
+  C:0089H         LINE#         85
+  -------         ENDPROC       TIMER
+  -------         ENDMOD        BJDJ_1
+
+Program Size: data=11.0 xdata=0 code=152
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

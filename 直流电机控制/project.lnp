@@ -1,0 +1,5 @@
+"main.obj",
+"L293D_Motor.obj",
+"delay.obj" 
+TO "project" 
+RAMSIZE(256) 

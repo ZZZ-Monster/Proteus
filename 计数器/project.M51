@@ -1,0 +1,110 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/30/2021  14:05:54  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE main.obj TO project RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000CH     UNIT         ?DT?MAIN
+            IDATA   0014H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     008CH     UNIT         ?C_C51STARTUP
+            CODE    009AH     0020H     UNIT         ?PR?MAIN?MAIN
+            CODE    00BAH     0015H     UNIT         ?PR?INIT_COUNTER?MAIN
+            CODE    00CFH     000DH     UNIT         ?PR?COUNTER0?MAIN
+            CODE    00DCH     000DH     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   project (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?INIT_COUNTER?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/30/2021  14:05:54  PAGE 2
+
+
+  D:00A0H         PUBLIC        P2
+  B:00A8H.7       PUBLIC        EA
+  C:00CFH         PUBLIC        Counter0
+  C:009AH         PUBLIC        main
+  D:0008H         PUBLIC        count
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.1       PUBLIC        ET0
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  D:000AH         PUBLIC        shumaguan
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  C:00BAH         PUBLIC        Init_counter
+  -------         PROC          INIT_COUNTER
+  C:00BAH         LINE#         9
+  C:00BAH         LINE#         10
+  C:00BAH         LINE#         11
+  C:00BDH         LINE#         12
+  C:00C0H         LINE#         13
+  C:00C3H         LINE#         14
+  C:00C6H         LINE#         15
+  C:00C8H         LINE#         16
+  C:00CAH         LINE#         17
+  C:00CCH         LINE#         18
+  C:00CEH         LINE#         19
+  -------         ENDPROC       INIT_COUNTER
+  -------         PROC          MAIN
+  C:009AH         LINE#         24
+  C:009AH         LINE#         25
+  C:009AH         LINE#         26
+  C:009DH         LINE#         27
+  C:00A0H         LINE#         28
+  C:00A0H         LINE#         29
+  C:00A0H         LINE#         30
+  C:00A8H         LINE#         31
+  C:00B8H         LINE#         32
+  -------         ENDPROC       MAIN
+  -------         PROC          COUNTER0
+  C:00CFH         LINE#         36
+  C:00D1H         LINE#         38
+  C:00D9H         LINE#         39
+  -------         ENDPROC       COUNTER0
+  -------         ENDMOD        MAIN
+
+Program Size: data=21.0 xdata=0 code=225
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

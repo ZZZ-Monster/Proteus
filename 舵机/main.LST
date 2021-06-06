@@ -1,0 +1,74 @@
+C51 COMPILER V9.01   MAIN                                                                  06/02/2021 14:57:59 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>                       
+   2          
+   3          #include "timer0.h"
+   4          
+   5          sbit SG_PWM=P2^0;                                                       //ÐÅºÅ¿ØÖÆÒý½Å                                           ºì¡ª¡ªVCC ×Ø¡ª¡ªGND »Æ¡ª¡ªÐÅºÅÏß
+   6          unsigned char count=0;                                       //¼Æ´Î  ¸³³õÖµÎª0
+   7          unsigned char PWM_count=0;                  //0--0¶È£¬2--45¶È£¬4--90¶È£¬6--135¶È£¬8--180¶È
+   8          
+   9          void main()
+  10          {
+  11   1        Timer0_Init();
+  12   1        while(1)
+  13   1        {
+  14   2      //              if(P1_0==0)PWM_count=0;   //¶æ»ú×ª¶¯0¶È
+  15   2      //              if(P1_1==0)PWM_count=1;else PWM_count=0;          //¶æ»ú×ª¶¯22.5¶È              Ö»Ö´ÐÐÆäÖÐÒ»¾ä¿É±ÜÃâ¸ÉÈÅ£¬Ò²¿ÉÖ´ÐÐ¶à¾ä 
+  16   2      //      if(P1_2==0)PWM_count=2;   //¶æ»ú×ª¶¯45¶È
+  17   2      //              if(P1_3==0)PWM_count=3;   //¶æ»ú×ª¶¯67.5¶È                      
+  18   2      //              if(P1_4==0)PWM_count=4;   //¶æ»ú×ª¶¯90¶È
+  19   2      //              if(P1_5==0)PWM_count=5;   //¶æ»ú×ª¶¯112.5¶È
+  20   2      //              if(P1_6==0)PWM_count=6;   //¶æ»ú×ª¶¯135¶È
+  21   2      //      if(P1_7==0)PWM_count=7;   //¶æ»ú×ª¶¯157.5¶È
+  22   2      //      if(P2_1==0)PWM_count=8;   //¶æ»ú×ª¶¯180¶È
+  23   2                      PWM_count=2;
+  24   2         }
+  25   1      }
+  26          
+  27          void Timer0() interrupt 1      //ÌØ±ð×¢Òâ´Ë´¦£¬0--Íâ²¿ÖÐ¶Ï0£¬1--¶¨Ê±Æ÷ÖÐ¶Ï0£¬2--Íâ²¿ÖÐ¶Ï1£¬3--¶¨Ê±Æ÷ÖÐ¶Ï1£
+             -¬4--´®ÐÐ¿ÚÖÐ¶Ï1
+  28          {
+  29   1      //      TR0=0;
+  30   1              TL0 = 0x0C;             //ÉèÖÃ¶¨Ê±³õÊ¼Öµ
+  31   1              TH0 = 0xFE;             //ÉèÖÃ¶¨Ê±³õÊ¼Öµ
+  32   1        
+  33   1      
+  34   1                if(count<=PWM_count)
+  35   1                {                                                                     
+  36   2                              SG_PWM=1;
+  37   2                }
+  38   1                else
+  39   1                {
+  40   2                      SG_PWM=0;
+  41   2                }
+  42   1                count++;                                                //¼Æ´Î£¬Ã¿0.5ºÁÃë¼Ó1
+  43   1                if(count>=40)
+  44   1                {
+  45   2                      count=0;
+  46   2                }
+  47   1      //        TR0=1;
+  48   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     48    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.01   MAIN                                                                  06/02/2021 14:57:59 PAGE 2   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,109 @@
+C51 COMPILER V9.01   MAIN                                                                  05/29/2021 17:41:03 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "delay.H" 
+   3          unsigned char shumaguan[]={0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};  //低电平亮
+   4          unsigned char key();
+   5          void Nixie();
+   6          
+   7          unsigned char Temp;
+   8          
+   9          void main()
+  10          {
+  11   1              P3=0x00;
+  12   1              while(1)
+  13   1              {
+  14   2                      Temp=key();
+  15   2                      Nixie();
+  16   2      
+  17   2              }
+  18   1      }
+  19          
+  20          
+  21          //数码管显示
+  22          void Nixie()
+  23          {
+  24   1              if(Temp/10==0)
+  25   1              {
+  26   2                      P3_1=1;
+  27   2                      P2=shumaguan[Temp];
+  28   2                      P2=0xff;
+  29   2              }
+  30   1              else
+  31   1              {
+  32   2                      P3_0= 1;
+  33   2                      P2=shumaguan[Temp/10];
+  34   2                      delay(5);
+  35   2                      P3_0= 0;
+  36   2                      P3_1= 1;
+  37   2                      P2=shumaguan[Temp%10];
+  38   2                      delay(5);
+  39   2                      P3_1= 0;
+  40   2      
+  41   2              }
+  42   1      }
+  43          
+  44          
+  45          
+  46          
+  47          //矩阵按键
+  48          unsigned char key()
+  49          {
+  50   1              unsigned char NUM;
+  51   1              P1=0XFF;
+  52   1              P1_4=0;
+  53   1              if(P1_0==0){delay(10);while(P1_0==0);delay(10);NUM=1;}
+  54   1              if(P1_1==0){delay(10);while(P1_1==0);delay(10);NUM=5;}
+  55   1              if(P1_2==0){delay(10);while(P1_2==0);delay(10);NUM=9;}
+C51 COMPILER V9.01   MAIN                                                                  05/29/2021 17:41:03 PAGE 2   
+
+  56   1              if(P1_3==0){delay(10);while(P1_3==0);delay(10);NUM=13;}
+  57   1      
+  58   1              P1=0XFF;        
+  59   1              P1_5=0;
+  60   1              if(P1_0==0){delay(10);while(P1_0==0);delay(10);NUM=2;}
+  61   1              if(P1_1==0){delay(10);while(P1_1==0);delay(10);NUM=6;}
+  62   1              if(P1_2==0){delay(10);while(P1_2==0);delay(10);NUM=10;}
+  63   1              if(P1_3==0){delay(10);while(P1_3==0);delay(10);NUM=14;}
+  64   1      
+  65   1      
+  66   1              P1=0XFF;        
+  67   1              P1_6=0;
+  68   1              if(P1_0==0){delay(10);while(P1_0==0);delay(10);NUM=3;}
+  69   1              if(P1_1==0){delay(10);while(P1_1==0);delay(10);NUM=7;}
+  70   1              if(P1_2==0){delay(10);while(P1_2==0);delay(10);NUM=11;}
+  71   1              if(P1_3==0){delay(10);while(P1_3==0);delay(10);NUM=15;}
+  72   1      
+  73   1      
+  74   1              P1=0XFF;        
+  75   1              P1_7=0;
+  76   1              if(P1_0==0){delay(10);while(P1_0==0);delay(10);NUM=4;}
+  77   1              if(P1_1==0){delay(10);while(P1_1==0);delay(10);NUM=8;}
+  78   1              if(P1_2==0){delay(10);while(P1_2==0);delay(10);NUM=12;}
+  79   1              if(P1_3==0){delay(10);while(P1_3==0);delay(10);NUM=16;}
+  80   1      
+  81   1              return NUM;
+  82   1      
+  83   1      }
+  84          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    471    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     11       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

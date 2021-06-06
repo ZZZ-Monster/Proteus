@@ -1,0 +1,189 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\Keil\Proteus 8\直流电机控制\project.uvproj
+Project File Date:  06/01/2021
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(23): warning C206: 'motor': missing function-prototype
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POSITIVE_MOTOR?MAIN
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  MOTOR
+    MODULE:  main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  MOTOR
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0017H
+Program Size: data=9.0 xdata=0 code=27
+"project" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=9.0 xdata=0 code=27
+"project" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=0 code=27
+creating hex file from "project"...
+"project" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?NEGATIVE_MOTOR?MAIN
+Program Size: data=9.0 xdata=0 code=34
+creating hex file from "project"...
+"project" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POSITIVE_MOTOR?MAIN
+Program Size: data=9.0 xdata=0 code=34
+creating hex file from "project"...
+"project" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  NEGATIVE_MOTOR
+    MODULE:  main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  NEGATIVE_MOTOR
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0010H
+Program Size: data=9.0 xdata=0 code=20
+creating hex file from "project"...
+"project" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling L293D_Motor.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POSITIVE_MOTOR?L293D_MOTOR
+Program Size: data=9.0 xdata=0 code=34
+creating hex file from "project"...
+"project" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling L293D_Motor.c...
+compiling delay.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POSITIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?NEGATIVE_MOTOR?L293D_MOTOR
+Program Size: data=11.0 xdata=0 code=81
+creating hex file from "project"...
+"project" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling L293D_Motor.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POSITIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?NEGATIVE_MOTOR?L293D_MOTOR
+Program Size: data=11.0 xdata=0 code=81
+creating hex file from "project"...
+"project" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling L293D_Motor.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POSITIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?NEGATIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PWM_MOTOR?L293D_MOTOR
+Program Size: data=14.0 xdata=0 code=154
+creating hex file from "project"...
+"project" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling L293D_Motor.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POSITIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?NEGATIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_PWM_MOTOR?L293D_MOTOR
+Program Size: data=13.0 xdata=0 code=153
+creating hex file from "project"...
+"project" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(7): error C132: 'main': not in formal parameter list
+MAIN.C(7): error C141: syntax error near '{'
+MAIN.C(8): error C132: 'Timer0Init': not in formal parameter list
+MAIN.C(9): error C141: syntax error near 'while'
+MAIN.C(9): error C141: syntax error near '1'
+MAIN.C(11): error C231: 'Delay_Motor': redefinition
+MAIN.C(12): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POSITIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?NEGATIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_PWM_MOTOR?L293D_MOTOR
+Program Size: data=13.0 xdata=0 code=153
+creating hex file from "project"...
+"project" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POSITIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?NEGATIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY_MOTOR?L293D_MOTOR
+Program Size: data=13.0 xdata=0 code=155
+creating hex file from "project"...
+"project" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POSITIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?NEGATIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY_MOTOR?L293D_MOTOR
+Program Size: data=13.0 xdata=0 code=155
+creating hex file from "project"...
+"project" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POSITIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?NEGATIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY_MOTOR?L293D_MOTOR
+Program Size: data=13.0 xdata=0 code=155
+creating hex file from "project"...
+"project" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?POSITIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?NEGATIVE_MOTOR?L293D_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY_MOTOR?L293D_MOTOR
+Program Size: data=13.0 xdata=0 code=155
+creating hex file from "project"...
+"project" - 0 Error(s), 3 Warning(s).

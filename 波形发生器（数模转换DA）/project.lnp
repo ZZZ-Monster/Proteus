@@ -1,0 +1,5 @@
+"main.obj",
+"delay.obj" 
+TO "project" 
+RAMSIZE(256) 
+DISABLEWARNING (16) 

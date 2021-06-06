@@ -1,0 +1,59 @@
+C51 COMPILER V9.01   MAIN                                                                  06/02/2021 19:15:21 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "regx52.h"
+   2          #include "delay.h"
+   3          #include "motor.h"
+   4          #include "UART.h"
+   5          
+   6          unsigned char Flag;
+   7          
+   8          //主函数
+   9          void main(void) 
+  10          { 
+  11   1              UART_Init();
+  12   1              while(1)
+  13   1              {
+  14   2                      
+  15   2              }
+  16   1      }
+  17          
+  18          
+  19          
+  20          void UART_Routine() interrupt 4
+  21          {
+  22   1               if(RI==1)    //RI为接收中断标志位（当接收完毕会自动置1）
+  23   1               {      
+  24   2                      Flag=SBUF;
+  25   2                      if(Flag==0x01)
+  26   2                      {
+  27   3                              Anticlockwise_28BYJ48_180();
+  28   3                      }
+  29   2                      if(Flag==0x02)
+  30   2                      {
+  31   3                              Clockwise_28BYJ48_180();
+  32   3                      }                                               
+  33   2                      RI=0;     //响应中断后必须手动置0
+  34   2               }
+  35   1      }
+  36          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     85    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

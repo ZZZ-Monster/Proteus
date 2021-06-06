@@ -1,0 +1,128 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/31/2021  13:45:53  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE main.obj, delay.obj TO project RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  delay.obj (DELAY)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         _DATA_GROUP_
+            DATA    000AH     0001H     UNIT         ?DT?MAIN
+            IDATA   000BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     002EH     UNIT         ?PR?MATRIX?MAIN
+            CODE    0031H     0018H     UNIT         ?CO?MAIN
+            CODE    0049H     0018H     UNIT         ?PR?_DELAY?DELAY
+            CODE    0061H     000CH     UNIT         ?C_C51STARTUP
+            CODE    006DH     0005H     UNIT         ?PR?MAIN?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   project (MAIN)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                  -----    -----
+  +--> ?PR?MATRIX?MAIN
+
+?PR?MATRIX?MAIN                -----    -----
+  +--> ?CO?MAIN
+  +--> ?PR?_DELAY?DELAY
+
+?PR?_DELAY?DELAY               0008H    0002H
+
+
+
+SYMBOL TABLE OF MODULE:  project (MAIN)
+
+  VALUE           TYPE          NAME
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/31/2021  13:45:53  PAGE 2
+
+
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0031H         PUBLIC        table
+  C:0003H         PUBLIC        matrix
+  C:006DH         PUBLIC        main
+  C:0041H         PUBLIC        row
+  D:000AH         PUBLIC        i
+  -------         PROC          MATRIX
+  C:0003H         LINE#         15
+  C:0003H         LINE#         16
+  C:0003H         LINE#         17
+  C:0006H         LINE#         18
+  C:0006H         LINE#         19
+  C:000EH         LINE#         20
+  C:0015H         LINE#         21
+  C:001DH         LINE#         22
+  C:0024H         LINE#         23
+  C:0027H         LINE#         25
+  C:0030H         LINE#         27
+  -------         ENDPROC       MATRIX
+  -------         PROC          MAIN
+  C:006DH         LINE#         29
+  C:006DH         LINE#         30
+  C:006DH         LINE#         31
+  C:006DH         LINE#         32
+  C:006DH         LINE#         33
+  C:0070H         LINE#         35
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0049H         PUBLIC        _delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:0008H         SYMBOL        i
+  D:0009H         SYMBOL        j
+  -------         ENDDO         
+  C:0049H         LINE#         1
+  C:0049H         LINE#         2
+  C:0049H         LINE#         3
+  C:004DH         LINE#         4
+  C:004DH         LINE#         6
+  C:0050H         LINE#         7
+  C:0053H         LINE#         9
+  C:0053H         LINE#         10
+  C:0056H         LINE#         11
+  C:0056H         LINE#         12
+  C:0059H         LINE#         13
+  C:005EH         LINE#         14
+  C:0060H         LINE#         15
+  -------         ENDPROC       _DELAY
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/31/2021  13:45:53  PAGE 3
+
+
+  -------         ENDMOD        DELAY
+
+Program Size: data=12.0 xdata=0 code=114
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

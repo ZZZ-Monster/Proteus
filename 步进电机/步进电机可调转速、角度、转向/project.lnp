@@ -1,0 +1,5 @@
+"main.obj",
+"delaytime10us.obj",
+"MotorRun.obj" 
+TO "project" 
+RAMSIZE(256) 

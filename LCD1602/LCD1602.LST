@@ -1,0 +1,121 @@
+C51 COMPILER V9.01   LCD1602                                                               05/30/2021 20:55:43 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE LCD1602
+OBJECT MODULE PLACED IN LCD1602.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE LCD1602.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          sbit RS=P3^0;
+   4          sbit RW=P3^1;
+   5          sbit E=P3^2;
+   6          
+   7          unsigned char str[]={"Hello World"};
+   8          unsigned char i;
+   9          
+  10          void delay(int ms)              //@12.000MHz
+  11          {
+  12   1              while(ms)
+  13   1              {
+  14   2                      unsigned char i, j;
+  15   2                      i = 2;
+  16   2                      j = 239;
+  17   2                      do
+  18   2                              {
+  19   3                                      while (--j);
+  20   3                              } 
+  21   2                              while (--i);
+  22   2                      ms--;
+  23   2              }       
+  24   1      }
+  25          
+  26          
+  27          
+  28          
+  29          //写指令函数
+  30          void WriteCommand(unsigned char Command)
+  31          {
+  32   1              RS=0;
+  33   1              RW=0;
+  34   1              E=0;
+  35   1              P2=Command;
+  36   1              delay(5);         //延时一下，不然显示不出来
+  37   1              E=1;
+  38   1              E=0;
+  39   1      }
+  40          
+  41          //写数据函数
+  42          void WriteData(unsigned char Data)
+  43          {
+  44   1              RS=1;
+  45   1              RW=0;
+  46   1              E=0;
+  47   1              P2=Data;
+  48   1              delay(5);   //延时一下，不然显示不出来
+  49   1              E=1;
+  50   1              E=0;
+  51   1      }
+  52          
+  53          //初始化
+  54          void LCD_Init()
+  55          {
+C51 COMPILER V9.01   LCD1602                                                               05/30/2021 20:55:43 PAGE 2   
+
+  56   1              WriteCommand(0x38);
+  57   1              WriteCommand(0x0c);
+  58   1              WriteCommand(0x06);
+  59   1              WriteCommand(0x01);
+  60   1      }
+  61          
+  62          
+  63          //写数据，显示
+  64          void Display()
+  65          {
+  66   1              WriteCommand(0x80);                //第一行
+  67   1              WriteData('A');
+  68   1              WriteCommand(0x80+0x40+2);      //第二行
+  69   1              WriteData('+');
+  70   1              WriteCommand(0x80+2);
+  71   1              for(i=0;str[i]!='\0';i++)
+  72   1              {
+  73   2                      WriteData(str[i]);
+  74   2              }
+  75   1      }
+  76          
+  77          
+  78          
+  79          
+  80          
+  81          
+  82          
+  83          
+  84          
+  85          
+  86          
+  87          
+  88          
+  89          
+  90          
+  91          
+  92          
+  93          
+  94          
+  95          
+  96          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    119    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     13       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

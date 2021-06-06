@@ -1,0 +1,279 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        06/02/2021  19:19:15  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE main.obj, delay.obj, motor.obj, UART.obj TO project RAMSIZE (256) DISABLEWARNING (16)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  delay.obj (DELAY)
+  motor.obj (MOTOR)
+  UART.obj (UART)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?ANTICLOCKWISE180?MOTOR
+            DATA    000AH     0002H     UNIT         ?DT?CLOCKWISE180?MOTOR
+            DATA    000CH     0002H     UNIT         _DATA_GROUP_
+            DATA    000EH     0001H     UNIT         ?DT?MAIN
+            DATA    000FH     0001H     UNIT         ?DT?MOTOR?MOTOR
+            IDATA   0010H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     001FH     UNIT         ?PR?MOTOR?MOTOR
+                    0022H     0001H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+            CODE    0026H     0050H     UNIT         ?PR?UART_ROUTINE?MAIN
+            CODE    0076H     0031H     UNIT         ?PR?ANTICLOCKWISE_28BYJ48_180?MOTOR
+            CODE    00A7H     0031H     UNIT         ?PR?CLOCKWISE_28BYJ48_180?MOTOR
+            CODE    00D8H     002EH     UNIT         ?PR?ANTICLOCKWISE180?MOTOR
+            CODE    0106H     002EH     UNIT         ?PR?CLOCKWISE180?MOTOR
+            CODE    0134H     001EH     UNIT         ?PR?_DELAY?DELAY
+            CODE    0152H     001BH     UNIT         ?PR?UART_INIT?UART
+            CODE    016DH     0010H     UNIT         ?CO?MOTOR
+            CODE    017DH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0189H     0005H     UNIT         ?PR?MAIN?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   project (MAIN)
+
+
+SEGMENT                                       DATA_GROUP 
+  +--> CALLED SEGMENT                       START    LENGTH
+-----------------------------------------------------------
+?PR?UART_ROUTINE?MAIN                       -----    -----
+  +--> ?PR?ANTICLOCKWISE_28BYJ48_180?MOTOR
+  +--> ?PR?CLOCKWISE_28BYJ48_180?MOTOR
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/02/2021  19:19:15  PAGE 2
+
+
+?PR?ANTICLOCKWISE_28BYJ48_180?MOTOR         000CH    0002H
+  +--> ?CO?MOTOR
+  +--> ?PR?_DELAY?DELAY
+
+?PR?CLOCKWISE_28BYJ48_180?MOTOR             000CH    0002H
+  +--> ?CO?MOTOR
+  +--> ?PR?_DELAY?DELAY
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                               -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                               -----    -----
+  +--> ?PR?UART_INIT?UART
+
+
+
+SYMBOL TABLE OF MODULE:  project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0026H         PUBLIC        UART_Routine
+  B:0098H.0       PUBLIC        RI
+  C:0189H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:000EH         PUBLIC        Flag
+  -------         PROC          MAIN
+  C:0189H         LINE#         9
+  C:0189H         LINE#         10
+  C:0189H         LINE#         11
+  C:018CH         LINE#         12
+  C:018CH         LINE#         13
+  C:018CH         LINE#         15
+  -------         ENDPROC       MAIN
+  -------         PROC          UART_ROUTINE
+  C:0026H         LINE#         20
+  C:0043H         LINE#         22
+  C:0046H         LINE#         23
+  C:0046H         LINE#         24
+  C:0049H         LINE#         25
+  C:004EH         LINE#         26
+  C:004EH         LINE#         27
+  C:0051H         LINE#         28
+  C:0051H         LINE#         29
+  C:0056H         LINE#         30
+  C:0056H         LINE#         31
+  C:0059H         LINE#         32
+  C:0059H         LINE#         33
+  C:005BH         LINE#         34
+  C:005BH         LINE#         35
+  -------         ENDPROC       UART_ROUTINE
+  -------         ENDMOD        MAIN
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/02/2021  19:19:15  PAGE 3
+
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0134H         PUBLIC        _Delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0004H         SYMBOL        k
+  -------         ENDDO         
+  C:0134H         LINE#         1
+  C:0134H         LINE#         2
+  C:0134H         LINE#         4
+  C:013EH         LINE#         5
+  C:013EH         LINE#         6
+  C:0151H         LINE#         8
+  C:0151H         LINE#         9
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        MOTOR
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:0003H         PUBLIC        Motor
+  C:016DH         PUBLIC        Clockwise
+  C:00A7H         PUBLIC        Clockwise_28BYJ48_180
+  C:0106H         PUBLIC        Clockwise180
+  C:0175H         PUBLIC        Anticlockwise
+  C:0076H         PUBLIC        Anticlockwise_28BYJ48_180
+  C:00D8H         PUBLIC        Anticlockwise180
+  -------         PROC          MOTOR
+  -------         DO            
+  D:000FH         SYMBOL        i
+  -------         ENDDO         
+  C:0003H         LINE#         11
+  C:0003H         LINE#         12
+  C:0003H         LINE#         14
+  C:0006H         LINE#         15
+  C:0006H         LINE#         16
+  C:0009H         LINE#         17
+  C:0011H         LINE#         18
+  C:0018H         LINE#         20
+  C:0021H         LINE#         21
+  -------         ENDPROC       MOTOR
+  -------         PROC          ANTICLOCKWISE180
+  -------         DO            
+  D:0008H         SYMBOL        i
+  D:0009H         SYMBOL        j
+  -------         ENDDO         
+  C:00D8H         LINE#         26
+  C:00D8H         LINE#         27
+  C:00D8H         LINE#         29
+  C:00DBH         LINE#         30
+  C:00DBH         LINE#         31
+  C:00DEH         LINE#         32
+  C:00DEH         LINE#         33
+  C:00E1H         LINE#         34
+  C:00E9H         LINE#         35
+  C:00F0H         LINE#         36
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/02/2021  19:19:15  PAGE 4
+
+
+  C:00F9H         LINE#         37
+  C:0102H         LINE#         38
+  C:0105H         LINE#         39
+  -------         ENDPROC       ANTICLOCKWISE180
+  -------         PROC          CLOCKWISE180
+  -------         DO            
+  D:000AH         SYMBOL        i
+  D:000BH         SYMBOL        j
+  -------         ENDDO         
+  C:0106H         LINE#         43
+  C:0106H         LINE#         44
+  C:0106H         LINE#         46
+  C:0109H         LINE#         47
+  C:0109H         LINE#         48
+  C:010CH         LINE#         49
+  C:010CH         LINE#         50
+  C:010FH         LINE#         51
+  C:0117H         LINE#         52
+  C:011EH         LINE#         53
+  C:0127H         LINE#         54
+  C:0130H         LINE#         55
+  C:0133H         LINE#         56
+  -------         ENDPROC       CLOCKWISE180
+  -------         PROC          ANTICLOCKWISE_28BYJ48_180
+  -------         DO            
+  D:000CH         SYMBOL        i
+  D:000DH         SYMBOL        j
+  -------         ENDDO         
+  C:0076H         LINE#         65
+  C:0076H         LINE#         66
+  C:0076H         LINE#         68
+  C:0079H         LINE#         69
+  C:0079H         LINE#         70
+  C:007CH         LINE#         71
+  C:007CH         LINE#         72
+  C:007FH         LINE#         73
+  C:0087H         LINE#         74
+  C:008EH         LINE#         75
+  C:0097H         LINE#         76
+  C:00A0H         LINE#         77
+  -------         ENDPROC       ANTICLOCKWISE_28BYJ48_180
+  -------         PROC          CLOCKWISE_28BYJ48_180
+  -------         DO            
+  D:000CH         SYMBOL        i
+  D:000DH         SYMBOL        j
+  -------         ENDDO         
+  C:00A7H         LINE#         83
+  C:00A7H         LINE#         84
+  C:00A7H         LINE#         86
+  C:00AAH         LINE#         87
+  C:00AAH         LINE#         88
+  C:00ADH         LINE#         89
+  C:00ADH         LINE#         90
+  C:00B0H         LINE#         91
+  C:00B8H         LINE#         92
+  C:00BFH         LINE#         93
+  C:00C8H         LINE#         94
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/02/2021  19:19:15  PAGE 5
+
+
+  C:00D1H         LINE#         95
+  -------         ENDPROC       CLOCKWISE_28BYJ48_180
+  -------         ENDMOD        MOTOR
+
+  -------         MODULE        UART
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  B:00A8H.4       PUBLIC        ES
+  D:0087H         PUBLIC        PCON
+  C:0152H         PUBLIC        UART_Init
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.3       PUBLIC        ET1
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  -------         PROC          UART_INIT
+  C:0152H         LINE#         5
+  C:0152H         LINE#         6
+  C:0152H         LINE#         7
+  C:0155H         LINE#         8
+  C:0158H         LINE#         9
+  C:015BH         LINE#         10
+  C:015EH         LINE#         11
+  C:0161H         LINE#         12
+  C:0164H         LINE#         13
+  C:0166H         LINE#         14
+  C:0168H         LINE#         15
+  C:016AH         LINE#         16
+  C:016CH         LINE#         17
+  -------         ENDPROC       UART_INIT
+  -------         ENDMOD        UART
+
+Program Size: data=17.0 xdata=0 code=397
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

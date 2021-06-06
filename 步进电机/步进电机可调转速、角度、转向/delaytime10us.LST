@@ -1,0 +1,38 @@
+C51 COMPILER V9.01   DELAYTIME10US                                                         05/27/2021 08:26:52 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE DELAYTIME10US
+OBJECT MODULE PLACED IN delaytime10us.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE delaytime10us.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          
+   2          
+   3          void Delay10us()                //@11.0592MHz
+   4          {
+   5   1              unsigned char i;
+   6   1      
+   7   1              i = 2;
+   8   1              while (--i);
+   9   1      }
+  10          
+  11          void delay(unsigned int  time)//—” ±time*10 us
+  12          {
+  13   1              while(time--)
+  14   1              {Delay10us();}
+  15   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     25    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

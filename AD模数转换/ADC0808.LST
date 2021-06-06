@@ -1,0 +1,51 @@
+C51 COMPILER V9.01   ADC0808                                                               05/31/2021 19:56:00 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE ADC0808
+OBJECT MODULE PLACED IN ADC0808.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE ADC0808.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "lcd1602.H"
+   3          
+   4          
+   5          sbit STRAT=P3^0;
+   6          sbit EOC=P3^1;
+   7          sbit OE=P3^2;
+   8          
+   9          unsigned char Data;
+  10          
+  11          unsigned char ADC()
+  12          {
+  13   1              STRAT=0;
+  14   1              STRAT=1;
+  15   1              delay(5);
+  16   1              STRAT=0;
+  17   1              while(EOC==0);//等待转换完成
+  18   1              OE=1;
+  19   1              Data=P2;
+  20   1              OE=0;
+  21   1              return Data;
+  22   1      }
+  23          
+  24          
+  25          
+  26          
+  27          
+  28          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     26    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

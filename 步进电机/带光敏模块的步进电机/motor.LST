@@ -1,0 +1,125 @@
+C51 COMPILER V9.01   MOTOR                                                                 06/02/2021 17:17:51 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MOTOR
+OBJECT MODULE PLACED IN motor.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE motor.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "delay.h"
+   3          
+   4          #define GPIO_MOTOR P2
+   5          
+   6          
+   7          unsigned char code Clockwise[8]={0x01,0x03,0x02,0x06,0x04,0x0c,0x08,0x09}; //顺时针A-AB-B-BC-C-CD-D-DA
+   8          unsigned char code Anticlockwise[8]={0x09,0x08,0x0c,0x04,0x06,0x02,0x03,0x01};  //逆时针转动顺序
+   9          
+  10          //逆时针转动8拍
+  11          void  Motor()  
+  12          { 
+  13   1              unsigned char i;
+  14   1              for(i=0;i<8;i++)
+  15   1              { 
+  16   2                      GPIO_MOTOR&=0xf0;  //低四位清零
+  17   2                      GPIO_MOTOR|=Anticlockwise[i];  //置位低四位的相应位
+  18   2                      Delay(2);       //改变参数可以调节转速  
+  19   2                      //如果要使步进电机停止转动，则使用GPIO_MOTOR&=0xf0; 
+  20   2              }
+  21   1              GPIO_MOTOR&=0xf0;
+  22   1                                        
+  23   1      }
+  24          
+  25          
+  26          
+  27          //逆时针转动180°
+  28          void  Anticlockwise180() 
+  29          { 
+  30   1              unsigned char i,j;
+  31   1              for(j=0;j<79;j++)  //79这个数字与电机参数有关，需要在仿真实验中不断调整从而确定
+  32   1              {
+  33   2                      for(i=0;i<8;i++)
+  34   2                      { 
+  35   3                              GPIO_MOTOR&=0xf0;  //低四位清零
+  36   3                              GPIO_MOTOR|=Anticlockwise[i];  //置位低四位的相应位
+  37   3                              Delay(3);       //调节转速      
+  38   3                      }                       
+  39   2              }  
+  40   1              GPIO_MOTOR&=0xf0;  //低四位清零,停止转动
+  41   1      }
+  42          
+  43          
+  44          //顺时针转动180°
+  45          void Clockwise180()  
+  46          {
+  47   1              unsigned char i,j;
+  48   1              for(j=0;j<79;j++)  //79这个数字与电机参数有关，需要在仿真实验中不断调整从而确定
+  49   1              {
+  50   2                      for(i=0;i<8;i++)
+  51   2                      { 
+  52   3                              GPIO_MOTOR&=0xf0;  //低四位清零
+  53   3                              GPIO_MOTOR|=Clockwise[i];  //置位低四位的相应位
+  54   3                              Delay(3);       //调节转速      
+  55   3                      }                       
+C51 COMPILER V9.01   MOTOR                                                                 06/02/2021 17:17:51 PAGE 2   
+
+  56   2        }  
+  57   1              GPIO_MOTOR&=0xf0;  //低四位清零,停止转动
+  58   1      }
+  59          
+  60          
+  61          
+  62          /*有了步距角参数，我们就可以计算出要使步进电机转动180°，所需要的拍数。
+  63          每拍转动（5.625/64）°，在八拍工作方式下，一轮循环下来就转动了(5.625°/8)°，
+  64          要使电机转动180°就是要进行180/((5.625°/8))=256轮的8拍循环。256恰好是无符号8位数据所能容纳的数据数（0-255
+             -共256）。
+  65          这也是这个电机设计的巧妙之处。*/
+  66          //逆时针转动180°(适用于28BYJ48)
+  67          void  Anticlockwise_28BYJ48_180() 
+  68          { 
+  69   1              unsigned char i,j;
+  70   1              for(j=0;j<255;j++)  //改成255
+  71   1              {
+  72   2                      for(i=0;i<8;i++)
+  73   2                      { 
+  74   3                              GPIO_MOTOR&=0xf0;  //低四位清零
+  75   3                              GPIO_MOTOR|=Anticlockwise[i];  //置位低四位的相应位
+  76   3                              Delay(1);       //调节转速      
+  77   3                      }                       
+  78   2          }  
+  79   1              Delay(1000);
+  80   1      
+  81   1      }
+  82          
+  83          //顺时针转动180°(适用于28BYJ48)
+  84          void  clockwise_28BYJ48_180() 
+  85          { 
+  86   1              unsigned char i,j;
+  87   1              for(j=0;j<255;j++)  //改成255
+  88   1              {
+  89   2                      for(i=0;i<8;i++)
+  90   2                      { 
+  91   3                              GPIO_MOTOR&=0xf0;  //低四位清零
+  92   3                              GPIO_MOTOR|=Clockwise[i];  //置位低四位的相应位
+  93   3                              Delay(1);       //调节转速      
+  94   3                      }                       
+  95   2          }  
+  96   1              Delay(1000);
+  97   1              while(P1_0==1);    //旋转180后停止
+  98   1      }
+  99          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    228    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       9
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

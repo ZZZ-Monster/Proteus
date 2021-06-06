@@ -1,0 +1,172 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/28/2021  17:05:20  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE main.obj, delaytime10us.obj, MotorRun.obj TO project RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  delaytime10us.obj (DELAYTIME10US)
+  MotorRun.obj (MOTORRUN)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0006H     UNIT         _DATA_GROUP_
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0147H     UNIT         ?PR?_MOTORRUN?MOTORRUN
+            CODE    014AH     0018H     UNIT         ?PR?MAIN?MAIN
+            CODE    0162H     0014H     UNIT         ?PR?_DELAY?DELAYTIME10US
+            CODE    0176H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0182H     0005H     UNIT         ?PR?DELAY10US?DELAYTIME10US
+
+
+
+OVERLAY MAP OF MODULE:   project (MAIN)
+
+
+SEGMENT                               DATA_GROUP 
+  +--> CALLED SEGMENT               START    LENGTH
+---------------------------------------------------
+?C_C51STARTUP                       -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                       -----    -----
+  +--> ?PR?_MOTORRUN?MOTORRUN
+  +--> ?PR?_DELAY?DELAYTIME10US
+
+?PR?_MOTORRUN?MOTORRUN              0008H    0006H
+  +--> ?PR?_DELAY?DELAYTIME10US
+
+?PR?_DELAY?DELAYTIME10US            -----    -----
+  +--> ?PR?DELAY10US?DELAYTIME10US
+
+
+
+SYMBOL TABLE OF MODULE:  project (MAIN)
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/28/2021  17:05:20  PAGE 2
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:014AH         PUBLIC        main
+  -------         PROC          MAIN
+  C:014AH         LINE#         6
+  C:014AH         LINE#         7
+  C:014AH         LINE#         8
+  C:014AH         LINE#         9
+  C:014AH         LINE#         10
+  C:0159H         LINE#         11
+  C:0160H         LINE#         12
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        DELAYTIME10US
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0162H         PUBLIC        _delay
+  C:0182H         PUBLIC        Delay10us
+  -------         PROC          DELAY10US
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:0182H         LINE#         3
+  C:0182H         LINE#         4
+  C:0182H         LINE#         7
+  C:0184H         LINE#         8
+  C:0186H         LINE#         9
+  -------         ENDPROC       DELAY10US
+  -------         PROC          _DELAY
+  D:0004H         SYMBOL        time
+  C:0162H         LINE#         11
+  C:0166H         LINE#         12
+  C:0166H         LINE#         13
+  C:0170H         LINE#         14
+  C:0175H         LINE#         15
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAYTIME10US
+
+  -------         MODULE        MOTORRUN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  B:00A0H.2       PUBLIC        MA
+  B:00A0H.3       PUBLIC        MB
+  B:00A0H.4       PUBLIC        MC
+  B:00A0H.5       PUBLIC        MD
+  C:0003H         PUBLIC        _MotorRun
+  -------         PROC          _MOTORRUN
+  D:0008H         SYMBOL        nangle
+  D:0004H         SYMBOL        drct
+  D:000AH         SYMBOL        speed
+  -------         DO            
+  D:000CH         SYMBOL        step
+  -------         ENDDO         
+  C:0003H         LINE#         17
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/28/2021  17:05:20  PAGE 3
+
+
+  C:000BH         LINE#         18
+  C:000BH         LINE#         20
+  C:0010H         LINE#         21
+  C:0017H         LINE#         22
+  C:0017H         LINE#         23
+  C:0027H         LINE#         24
+  C:0027H         LINE#         25
+  C:0051H         LINE#         26
+  C:0051H         LINE#         27
+  C:0057H         LINE#         28
+  C:005DH         LINE#         29
+  C:0067H         LINE#         30
+  C:006DH         LINE#         31
+  C:0077H         LINE#         32
+  C:0081H         LINE#         33
+  C:0085H         LINE#         34
+  C:008DH         LINE#         35
+  C:008DH         LINE#         36
+  C:009BH         LINE#         37
+  C:00A3H         LINE#         38
+  C:00AAH         LINE#         39
+  C:00ADH         LINE#         40
+  C:00ADH         LINE#         42
+  C:00ADH         LINE#         43
+  C:00BDH         LINE#         44
+  C:00BDH         LINE#         45
+  C:00E7H         LINE#         46
+  C:00E7H         LINE#         47
+  C:00EBH         LINE#         48
+  C:00F5H         LINE#         49
+  C:00FFH         LINE#         50
+  C:0105H         LINE#         51
+  C:010FH         LINE#         52
+  C:0113H         LINE#         53
+  C:0119H         LINE#         54
+  C:0121H         LINE#         55
+  C:0121H         LINE#         56
+  C:012FH         LINE#         57
+  C:0137H         LINE#         58
+  C:013EH         LINE#         59
+  C:0141H         LINE#         60
+  C:0141H         LINE#         61
+  C:0149H         LINE#         62
+  -------         ENDPROC       _MOTORRUN
+  -------         ENDMOD        MOTORRUN
+
+Program Size: data=15.0 xdata=0 code=391
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

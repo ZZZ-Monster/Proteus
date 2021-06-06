@@ -1,0 +1,99 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/30/2021  14:48:21  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE main.obj TO project RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000BH     UNIT         ?DT?MAIN
+            IDATA   0013H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+            CODE    0006H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0092H     0015H     UNIT         ?PR?INT0?MAIN
+            CODE    00A7H     000DH     UNIT         ?PR?MAIN?MAIN
+            CODE    00B4H     000DH     UNIT         ?C_INITSEG
+            CODE    00C1H     0007H     UNIT         ?PR?INIT_INTO?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   project (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?INIT_INTO?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/30/2021  14:48:21  PAGE 2
+
+
+  B:00A8H.7       PUBLIC        EA
+  C:00A7H         PUBLIC        main
+  C:00C1H         PUBLIC        Init_INTO
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  D:0008H         PUBLIC        shumaguan
+  C:0092H         PUBLIC        Int0
+  D:0012H         PUBLIC        i
+  -------         PROC          INIT_INTO
+  C:00C1H         LINE#         7
+  C:00C1H         LINE#         8
+  C:00C1H         LINE#         9
+  C:00C3H         LINE#         10
+  C:00C5H         LINE#         11
+  C:00C7H         LINE#         12
+  -------         ENDPROC       INIT_INTO
+  -------         PROC          MAIN
+  C:00A7H         LINE#         17
+  C:00A7H         LINE#         18
+  C:00A7H         LINE#         19
+  C:00AAH         LINE#         20
+  C:00AAH         LINE#         21
+  C:00AAH         LINE#         22
+  C:00B2H         LINE#         23
+  -------         ENDPROC       MAIN
+  -------         PROC          INT0
+  C:0092H         LINE#         27
+  C:0096H         LINE#         29
+  C:0098H         LINE#         30
+  C:00A2H         LINE#         31
+  -------         ENDPROC       INT0
+  -------         ENDMOD        MAIN
+
+Program Size: data=20.0 xdata=0 code=200
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,87 @@
+C51 COMPILER V9.01   MOTORRUN                                                              05/27/2021 12:54:16 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MOTORRUN
+OBJECT MODULE PLACED IN MotorRun.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE MotorRun.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "delaytime10us.h"
+   3          
+   4          #define uint unsigned int
+   5          
+   6          sbit MA=P2^2;
+   7          sbit MB=P2^3;
+   8          sbit MC=P2^4;
+   9          sbit MD=P2^5;
+  10          
+  11          
+  12          /*
+  13          angle：角度，范围[0,360]
+  14          drct：旋转方向，0：顺时针，1：逆时针
+  15          speed：转速，范围[1,100]
+  16          */
+  17          void MotorRun(unsigned int nangle, drct, speed)         //nangle=4096为一圈             speed转速75`400
+  18          {
+  19   1              uint step;
+  20   1              step=0;
+  21   1              if(drct==0)
+  22   1              {
+  23   2                      while(nangle--)
+  24   2                      {
+  25   3                              switch(step)//8拍方式驱动
+  26   3                              {
+  27   4                                      case 0:MA=1;MB=0;MC=0;MD=0;break;
+  28   4                                      case 1:MA=1;MB=1;MC=0;MD=0;break;
+  29   4                                      case 2:MA=0;MB=1;MC=0;MD=0;break;
+  30   4                                      case 3:MA=0;MB=1;MC=1;MD=0;break;
+  31   4                                      case 4:MA=0;MB=0;MC=1;MD=0;break;
+  32   4                                      case 5:MA=0;MB=0;MC=1;MD=1;break;
+  33   4                                      case 6:MA=0;MB=0;MC=0;MD=1;break;
+  34   4                                      case 7:MA=1;MB=0;MC=0;MD=1;break;
+  35   4                              }
+  36   3                              if(step==7)step=0;
+  37   3                              else step++;
+  38   3                              delay(speed);
+  39   3                      }
+  40   2              }
+  41   1              else
+  42   1              {
+  43   2                      while(nangle--)
+  44   2                      {
+  45   3                              switch(step)
+  46   3                              {
+  47   4                                      case 0:MA=1;MB=0;MC=0;MD=1;break;
+  48   4                                      case 1:MA=0;MB=0;MC=0;MD=1;break;
+  49   4                                      case 2:MA=0;MB=0;MC=1;MD=1;break;
+  50   4                                      case 3:MA=0;MB=0;MC=1;MD=0;break;
+  51   4                                      case 4:MA=0;MB=1;MC=1;MD=0;break;
+  52   4                                      case 5:MA=0;MB=1;MC=0;MD=0;break;
+  53   4                                      case 6:MA=1;MB=1;MC=0;MD=0;break;
+  54   4                                      case 7:MA=1;MB=0;MC=0;MD=0;break;
+  55   4                              }
+C51 COMPILER V9.01   MOTORRUN                                                              05/27/2021 12:54:16 PAGE 2   
+
+  56   3                              if(step==7)step=0;
+  57   3                              else step++;
+  58   3                              delay(speed);
+  59   3                      }
+  60   2              }
+  61   1              MA=0;MB=0;MC=0;MD=0;
+  62   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    327    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

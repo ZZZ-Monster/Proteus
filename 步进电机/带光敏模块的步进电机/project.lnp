@@ -1,0 +1,6 @@
+"main.obj",
+"delay.obj",
+"motor.obj" 
+TO "project" 
+RAMSIZE(256) 
+DISABLEWARNING (16) 

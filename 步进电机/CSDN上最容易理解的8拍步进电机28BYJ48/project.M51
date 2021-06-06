@@ -1,0 +1,193 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/29/2021  20:41:56  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE main.obj, delay.obj, motor.obj TO project RAMSIZE (256) DISABLEWARNING (16)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  delay.obj (DELAY)
+  motor.obj (MOTOR)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?ANTICLOCKWISE180?MOTOR
+            DATA    000AH     0002H     UNIT         ?DT?CLOCKWISE180?MOTOR
+            DATA    000CH     0002H     UNIT         _DATA_GROUP_
+            DATA    000EH     0001H     UNIT         ?DT?MOTOR?MOTOR
+            IDATA   000FH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     002EH     UNIT         ?PR?ANTICLOCKWISE180?MOTOR
+            CODE    0031H     002EH     UNIT         ?PR?CLOCKWISE180?MOTOR
+            CODE    005FH     002EH     UNIT         ?PR?ANTICLOCKWISE_28BYJ48_180?MOTOR
+            CODE    008DH     001FH     UNIT         ?PR?MOTOR?MOTOR
+            CODE    00ACH     001EH     UNIT         ?PR?_DELAY?DELAY
+            CODE    00CAH     0010H     UNIT         ?CO?MOTOR
+            CODE    00DAH     000CH     UNIT         ?PR?MAIN?MAIN
+            CODE    00E6H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   project (MAIN)
+
+
+SEGMENT                                       DATA_GROUP 
+  +--> CALLED SEGMENT                       START    LENGTH
+-----------------------------------------------------------
+?C_C51STARTUP                               -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                               -----    -----
+  +--> ?PR?ANTICLOCKWISE_28BYJ48_180?MOTOR
+  +--> ?PR?_DELAY?DELAY
+
+?PR?ANTICLOCKWISE_28BYJ48_180?MOTOR         000CH    0002H
+  +--> ?CO?MOTOR
+  +--> ?PR?_DELAY?DELAY
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/29/2021  20:41:56  PAGE 2
+
+
+
+
+SYMBOL TABLE OF MODULE:  project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:00DAH         PUBLIC        main
+  -------         PROC          MAIN
+  C:00DAH         LINE#         6
+  C:00DAH         LINE#         7
+  C:00DAH         LINE#         8
+  C:00DAH         LINE#         9
+  C:00DAH         LINE#         11
+  C:00DDH         LINE#         12
+  C:00E4H         LINE#         13
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:00ACH         PUBLIC        _Delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0004H         SYMBOL        k
+  -------         ENDDO         
+  C:00ACH         LINE#         1
+  C:00ACH         LINE#         2
+  C:00ACH         LINE#         4
+  C:00B6H         LINE#         5
+  C:00B6H         LINE#         6
+  C:00C9H         LINE#         8
+  C:00C9H         LINE#         9
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        MOTOR
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:008DH         PUBLIC        Motor
+  C:00CAH         PUBLIC        Clockwise
+  C:0031H         PUBLIC        Clockwise180
+  C:00D2H         PUBLIC        Anticlockwise
+  C:005FH         PUBLIC        Anticlockwise_28BYJ48_180
+  C:0003H         PUBLIC        Anticlockwise180
+  -------         PROC          MOTOR
+  -------         DO            
+  D:000EH         SYMBOL        i
+  -------         ENDDO         
+  C:008DH         LINE#         11
+  C:008DH         LINE#         12
+  C:008DH         LINE#         14
+  C:0090H         LINE#         15
+  C:0090H         LINE#         16
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/29/2021  20:41:56  PAGE 3
+
+
+  C:0093H         LINE#         17
+  C:009BH         LINE#         18
+  C:00A2H         LINE#         20
+  C:00ABH         LINE#         21
+  -------         ENDPROC       MOTOR
+  -------         PROC          ANTICLOCKWISE180
+  -------         DO            
+  D:0008H         SYMBOL        i
+  D:0009H         SYMBOL        j
+  -------         ENDDO         
+  C:0003H         LINE#         26
+  C:0003H         LINE#         27
+  C:0003H         LINE#         29
+  C:0006H         LINE#         30
+  C:0006H         LINE#         31
+  C:0009H         LINE#         32
+  C:0009H         LINE#         33
+  C:000CH         LINE#         34
+  C:0014H         LINE#         35
+  C:001BH         LINE#         36
+  C:0024H         LINE#         37
+  C:002DH         LINE#         38
+  C:0030H         LINE#         39
+  -------         ENDPROC       ANTICLOCKWISE180
+  -------         PROC          CLOCKWISE180
+  -------         DO            
+  D:000AH         SYMBOL        i
+  D:000BH         SYMBOL        j
+  -------         ENDDO         
+  C:0031H         LINE#         43
+  C:0031H         LINE#         44
+  C:0031H         LINE#         46
+  C:0034H         LINE#         47
+  C:0034H         LINE#         48
+  C:0037H         LINE#         49
+  C:0037H         LINE#         50
+  C:003AH         LINE#         51
+  C:0042H         LINE#         52
+  C:0049H         LINE#         53
+  C:0052H         LINE#         54
+  C:005BH         LINE#         55
+  C:005EH         LINE#         56
+  -------         ENDPROC       CLOCKWISE180
+  -------         PROC          ANTICLOCKWISE_28BYJ48_180
+  -------         DO            
+  D:000CH         SYMBOL        i
+  D:000DH         SYMBOL        j
+  -------         ENDDO         
+  C:005FH         LINE#         65
+  C:005FH         LINE#         66
+  C:005FH         LINE#         68
+  C:0062H         LINE#         69
+  C:0062H         LINE#         70
+  C:0065H         LINE#         71
+  C:0065H         LINE#         72
+  C:0068H         LINE#         73
+  C:0070H         LINE#         74
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/29/2021  20:41:56  PAGE 4
+
+
+  C:0077H         LINE#         75
+  C:0080H         LINE#         76
+  C:0089H         LINE#         77
+  C:008CH         LINE#         78
+  -------         ENDPROC       ANTICLOCKWISE_28BYJ48_180
+  -------         ENDMOD        MOTOR
+
+Program Size: data=16.0 xdata=0 code=242
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
